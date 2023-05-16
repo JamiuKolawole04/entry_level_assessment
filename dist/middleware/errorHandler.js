@@ -14,7 +14,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
         return res.status(400).json({
             success: false,
             status: "fail",
-            message: "hotel with this id does not exist",
+            message: "item with this id does not exist",
         });
     }
     return res.status(customError.statusCode).json({
