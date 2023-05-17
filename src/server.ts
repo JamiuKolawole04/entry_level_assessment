@@ -5,6 +5,7 @@ import express from "express";
 import cors from "cors";
 import { set } from "mongoose";
 
+import sessionRoute from "./routes/session.route";
 import { connectDB } from "./db/db";
 import { notFound } from "./middleware/not-found";
 import errorHandlerMiddleware from "./middleware/errorHandler";
@@ -26,6 +27,8 @@ app.get("/", async (_, res: Response) => {
     message: "server on!",
   });
 });
+
+app.use("/api/sessions", sessionRoute);
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);

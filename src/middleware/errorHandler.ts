@@ -19,14 +19,6 @@ const errorHandlerMiddleware = (
     message: err.message || "Something went wrong, try again later",
   };
 
-  if (err.name === "CastError") {
-    return res.status(400).json({
-      success: false,
-      status: "fail",
-      message: "item with this id does not exist",
-    });
-  }
-
   return res.status(customError.statusCode).json({
     success: customError.success,
     status: customError.status,
