@@ -27,10 +27,36 @@ export const sessions = async (
       });
     }
 
+    if (status) {
+      const statusOptions = ["OFFERING", "RUNNING", "OFFBOARDING"];
+
+      if (!statusOptions.includes(status)) {
+        return next(new AppError(400, "invalid status provided"));
+      }
+
+      sessions = sessions.filter((session) => session.status === status);
+    }
+
+    if (status && short_title) {
+      sessions = sessions.filter(
+        (el) =>
+          el.status === status &&
+          el.program.some((program) => {
+            return program.short_title === short_title;
+          })
+      );
+    }
+
+    const sortInDesc = sessions.sort(
+      (objA, objB) =>
+        Number(new Date(objB.start_date)) - Number(new Date(objA.start_date))
+    );
+
     res.status(200).json({
       success: true,
       message: "sessions fetched successfully",
-      sessions,
+      //   sessions,
+      sessions: sortInDesc,
     });
 
     // return next(new AppError(400, "not found"));
