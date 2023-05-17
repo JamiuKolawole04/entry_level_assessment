@@ -7,7 +7,7 @@ type Program = {
   short_title: string;
 };
 
-interface Session {
+export interface Session {
   id: string;
   name: string;
   status: string;
