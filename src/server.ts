@@ -6,7 +6,6 @@ import cors from "cors";
 import { set } from "mongoose";
 
 import sessionRoute from "./routes/session.route";
-import { connectDB } from "./db/db";
 import { notFound } from "./middleware/not-found";
 import errorHandlerMiddleware from "./middleware/errorHandler";
 
@@ -36,7 +35,6 @@ app.use(errorHandlerMiddleware);
 // starting server
 const start = async (): Promise<void> => {
   try {
-    await connectDB(process.env.MONGO_URI!);
     console.log("db connected");
 
     app.listen(PORT, () => console.log(`Server  listening on port ${PORT}...`));
