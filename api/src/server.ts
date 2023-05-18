@@ -11,6 +11,10 @@ import errorHandlerMiddleware from "./middleware/errorHandler";
 
 const app = express();
 const PORT = process.env.PORT;
+const corsOptions: cors.CorsOptions = {
+  origin: ["https://entry-level.netlify.app", "http://localhost:3000"],
+  optionsSuccessStatus: 200,
+};
 
 // middlewres
 set("strictQuery", false);
@@ -18,7 +22,7 @@ app.use(express.json({ limit: "10mb" }));
 app.use(
   express.urlencoded({ extended: false, limit: "50mb", parameterLimit: 50000 })
 );
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.get("/", async (_, res: Response) => {
   res.status(200).json({
@@ -35,7 +39,6 @@ app.use(errorHandlerMiddleware);
 // starting server
 const start = async (): Promise<void> => {
   try {
-
     app.listen(PORT, () => console.log(`Server  listening on port ${PORT}...`));
   } catch (error) {
     console.log(error);
