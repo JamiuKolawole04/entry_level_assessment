@@ -26,7 +26,8 @@ interface SessionResponse {
 type GetSessionResponse = {
   data: SessionResponse;
 };
-const baseUrl = "http://localhost:8080";
+// const baseUrl = "http://localhost:8080";
+const baseUrl = "https://entry-level-api.onrender.com";
 
 export const fetchSessions = async (
   url: string
