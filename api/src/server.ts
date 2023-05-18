@@ -1,7 +1,6 @@
 require("dotenv").config();
 
-import { NextFunction, Request, Response } from "express";
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import cors from "cors";
 
 import sessionRoute from "./routes/session.route";
