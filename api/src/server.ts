@@ -3,7 +3,6 @@ require("dotenv").config();
 import { NextFunction, Request, Response } from "express";
 import express from "express";
 import cors from "cors";
-import { set } from "mongoose";
 
 import sessionRoute from "./routes/session.route";
 import { notFound } from "./middleware/not-found";
@@ -17,7 +16,6 @@ const corsOptions: cors.CorsOptions = {
 };
 
 // middlewres
-set("strictQuery", false);
 app.use(express.json({ limit: "10mb" }));
 app.use(
   express.urlencoded({ extended: false, limit: "50mb", parameterLimit: 50000 })
