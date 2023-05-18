@@ -7,7 +7,8 @@
     "build-ts": "tsc",
     "ts-init": "tsc --init",
     "tsc-watch": "tsc -w",
-    "start": "npx nodemon",
+    "start": "npx ts-node ./src/server.ts",
+    "start:dev": "npx nodemon",
     "prod": "npx run build-ts",
     "postinstall": "npm run build-ts"
   },
