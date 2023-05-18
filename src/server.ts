@@ -35,7 +35,6 @@ app.use(errorHandlerMiddleware);
 // starting server
 const start = async (): Promise<void> => {
   try {
-    console.log("db connected");
 
     app.listen(PORT, () => console.log(`Server  listening on port ${PORT}...`));
   } catch (error) {
