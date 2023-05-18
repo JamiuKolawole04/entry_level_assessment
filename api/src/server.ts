@@ -22,7 +22,7 @@ app.use(
 );
 app.use(cors(corsOptions));
 
-app.get("/", async (_, res: Response) => {
+app.get("/", async (_: Request, res: Response) => {
   res.status(200).json({
     sucess: true,
     message: "server on!",
