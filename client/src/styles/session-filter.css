@@ -1,0 +1,17 @@
+.session-filter__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.session-filter__menu {
+  margin-bottom: 12px;
+}
+
+.session-filter__menu span {
+  margin-bottom: 8px;
+}
+
+select {
+  padding: 4px;
+}

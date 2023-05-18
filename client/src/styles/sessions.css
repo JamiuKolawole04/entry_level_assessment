@@ -1,0 +1,10 @@
+.sessions__container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40px 20px;
+  max-width: 1200px;
+  margin: 20px auto auto;
+}
+
+@import url(./session-item.css);
